@@ -1,3 +1,9 @@
+<hr>
+
+**NOTA BENE**: dopo l'annuncio del [***repository* ufficiale**](https://github.com/pcm-dpc/COVID-19) della Protezione Civile con i dati sul COVID-19, abbiamo **bloccato** l'**aggiornamento** automatico dei dati a partire dai PDF pubblicati sul loro sito.
+
+<hr>
+
 - [Cosa c'è in questo repo](#cosa-cè-in-questo-repo)
 - [Nota](#nota)
 - [Come contribuire](#come-contribuire)
@@ -5,11 +11,13 @@
   - [File CSV con i dati per provincia (i contagiati)](#file-csv-con-i-dati-per-provincia-i-contagiati)
   - [File CSV con i dati riepilogo](#file-csv-con-i-dati-riepilogo)
   - [API](#api)
+    - [Dati per provincia](#dati-per-provincia)
+    - [Dati di riepilogo](#dati-di-riepilogo)
   - [Archivio dei PDF pubblicati](#archivio-dei-pdf-pubblicati)
 - [Archiviazione automatica su Web Archive](#archiviazione-automatica-su-web-archive)
 - [Dati accessori di riferimento](#dati-accessori-di-riferimento)
 - [Altri progetti a tema](#altri-progetti-a-tema)
-- [Chi usa questi dati](#chi-usa-questi-dati)
+- [Chi usa (o è stato ispirato da) questi dati](#chi-usa-o-è-stato-ispirato-da-questi-dati)
 
 # Cosa c'è in questo repo
 
@@ -79,6 +87,8 @@ Il file è [questo](./publication/riepilogoArchivio.csv) e la struttura è quell
 
 I dati sono accessibili anche in formato Json attraverso API:
 
+### Dati per provincia
+
 es. https://openpuglia.org/api/?q=getdatacovid-19&reg=lombardia
 
 dove `reg = nome regione`
@@ -95,11 +105,31 @@ Omettendo la regione vengono restituiti tutti i dati disponibili
 
 https://openpuglia.org/api/?q=getdatacovid-19&mode=ts
 
+
+### Dati di riepilogo
+
+es. https://openpuglia.org/api/?q=getsummarycovid-19&reg=lombardia
+
+dove `reg = nome regione`
+
+consente di ottenere il riepilogo dei dati disponibili per quella regione. Omettendo il nome della regione verranno restituiti i dati relativi a tutte le regioni per cui esiste il dato
+
+https://openpuglia.org/api/?q=getsummarycovid-19
+
+La serie storica dei dati disponibili può essere richiesta introducendo `mode=ts` nella query string. I dati sono cumulativi, ossia si riferiscono ai totali complessivi riferiti alla data indicata
+
+es. https://openpuglia.org/api/?q=getsummarycovid-19&reg=lombardia&mode=ts
+
+Omettendo la regione vengono restituiti tutti i dati disponibili
+
+https://openpuglia.org/api/?q=getsummarycovid-19&mode=ts
+
+
 È un lavoro a cura di [**Vincenzo Patruno**](https://twitter.com/vincpatruno). Un grazie a [**#openpuglia**](https://openpuglia.org/) per l'hosting.
 
 ## Archivio dei PDF pubblicati
 
-A partire dal 2 marzo 2020 i PDF pubblicati verranno archiviati in [questa cartella](./pdfArchive).
+I PDF pubblicati verranno archiviati in [questa cartella](./pdfArchive).
 
 # Archiviazione automatica su Web Archive
 
@@ -119,15 +149,19 @@ A partire dal 4 marzo 2020, ogni giorno verrà creata una copia delle pagine sot
 
 Ringraziamo Matteo Brunati per lo [spunto](https://github.com/ondata/covid19italia/issues/1).
 
+Ringraziamo Luca Salvioli Mariani ([Il Sole 24 Ore](https://www.ilsole24ore.com/)) per lo storico precedente al 2 marzo.
+
 - **Coronavirus in Italia**, di Alessio Di Lorenzo (è stato il progetto ispiratore di questo lavoro) https://alessiodl.github.io/COVID19Dashboard/dist/index.html
 - COVID-19-Italy, di Carlo Torniai <https://github.com/carlotorniai/COVID-19-Italy>
 - ItalianCovidData, di Davide Magno <https://github.com/DavideMagno/ItalianCovidData>
 - Novel Coronavirus SARS-CoV-2 (2019-nCoV) Italian Outbreak Data Repository, di Simone Marzola <https://github.com/sarscov2-it/data>
 
-# Chi usa questi dati
+# Chi usa (o è stato ispirato da) questi dati
 
 - [rainbowbreeze](https://github.com/ondata/covid19italia/issues/3) > <https://datastudio.google.com/u/0/reporting/9f0b865e-bb18-4894-a7f4-acca6467c641?s=pkXn62iU3rQ>
 - [Guenter Richter](https://twitter.com/grichter) > <https://s3.eu-west-1.amazonaws.com/rc.ixmaps.com/ixmaps/app/Viewer/index.html?project=https://gjrichter.github.io/viz/COVID-19/projects/ixmaps_project_OnData_Prov2019_COVID_shape_numbers_curve.json>
 - [Alessio Passalacqua](https://twitter.com/alessiopassah2o) > <https://alessiopassalacqua.github.io/covid19_italy/>
 - [Riccardo Tasso](https://twitter.com/riccardotasso) > <https://public.flourish.studio/visualisation/1514619/>
 - [Antonio Poggi](https://twitter.com/Pogs_A) > <http://daily.omniscope.me/Demo/Health/Coronavirus.iox/r/Covid-19+Italia/>
+- [Franco Mossotto](https://twitter.com/FMossotto) > <http://bit.ly/CoronaVirusItaliaDataStudio>
+- [Salvatore Fiandaca](https://twitter.com/totofiandaca) > <https://pigrecoinfinito.com/2020/03/10/qgis-creare-grafici-con-incrementi-giornalieri>
